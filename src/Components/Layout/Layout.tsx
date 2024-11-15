@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigation } from "react-router-dom";
 import axios from "axios";
 import { Akun, IsiNavbar } from "../component_navbar";
+import modalLogin from "../ModalLogin";
 
 const Layout = () => {
   const navigation = useNavigation();
@@ -61,6 +62,7 @@ const Layout = () => {
                   path: "/",
                 },
                 { title: "Game", path: "/game" },
+                { title: "Login", path: "/modalLogin" },
               ]}
               data2={[]}
             />

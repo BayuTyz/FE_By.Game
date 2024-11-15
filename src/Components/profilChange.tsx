@@ -8,8 +8,6 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, user }) => {
-  if (!isOpen) return null;
-
   const userImage = user?.image || "/default-profile.png";
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -61,7 +59,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, user }) => {
       onClose();
     } catch (error) {
       console.error("Error updating image:", error);
-      setError("An error occurred while uploading the image. Please try again later.");
+      setError(
+        "An error occurred while uploading the image. Please try again later."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -77,55 +77,62 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, user }) => {
   }, [onClose, userImage]);
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-80">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Perbarui Foto Profil</h2>
-          <button
-            className="text-gray-500"
-            onClick={onClose}
-            aria-label="Close"
-          >
-            &times;
-          </button>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4 relative overflow-hidden">
-            {/* Display the image or the alt text */}
-            {previewImage ? (
-              <img
-                src={previewImage}
-                alt="Profile Preview"
-                className="w-full h-full object-cover rounded-full"
-              />
-            ) : (
-              <span className="absolute inset-0 flex items-center justify-center text-gray-400">
-                Profile Preview
-              </span>
-            )}
+    isOpen && (
+      <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-80">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-semibold">Perbarui Foto Profil</h2>
+            <button
+              className="text-gray-500"
+              onClick={onClose}
+              aria-label="Close"
+            >
+              &times;
+            </button>
           </div>
-          <label htmlFor="profile-image" className="text-blue-500 mb-4 cursor-pointer">
-            Pilih Gambar
-            <input
-              type="file"
-              id="profile-image"
-              onChange={handleFileChange}
-              accept="image/*"
-              className="hidden"
-            />
-          </label>
-          {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-          <button
-            className={`bg-blue-500 text-white py-2 px-4 rounded ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
-            onClick={handleImageUpdate}
-            disabled={isLoading}
-          >
-            {isLoading ? "Uploading..." : "Perbarui Gambar"}
-          </button>
+          <div className="flex flex-col items-center">
+            <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4 relative overflow-hidden">
+              {/* Display the image or the alt text */}
+              {previewImage ? (
+                <img
+                  src={previewImage}
+                  alt="Profile Preview"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              ) : (
+                <span className="absolute inset-0 flex items-center justify-center text-gray-400">
+                  Profile Preview
+                </span>
+              )}
+            </div>
+            <label
+              htmlFor="profile-image"
+              className="text-blue-500 mb-4 cursor-pointer"
+            >
+              Pilih Gambar
+              <input
+                type="file"
+                id="profile-image"
+                onChange={handleFileChange}
+                accept="image/*"
+                className="hidden"
+              />
+            </label>
+            {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+            <button
+              className={`bg-blue-500 text-white py-2 px-4 rounded ${
+                isLoading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              onClick={handleImageUpdate}
+              disabled={isLoading}
+            >
+              {isLoading ? "Uploading..." : "Perbarui Gambar"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 
-export default Modal;
+export default Modal;

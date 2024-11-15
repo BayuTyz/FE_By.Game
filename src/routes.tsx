@@ -13,6 +13,7 @@ import Honkai_SR from "./Components/game/hsr";
 import NewGame from "./pages/newGame";
 import Newproduct from "./pages/newproduct";
 import TopUp from "./Components/game/topup";
+import ModalLogin from "./Components/ModalLogin";
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   return !!token;
@@ -62,9 +63,13 @@ export const router = createBrowserRouter([
         element: <Sigup />,
       },
       {
-        path:"/game-detail/:gameId",
-        element: <TopUp/>
-      }
+        path: "/game-detail/:gameId",
+        element: <TopUp />,
+      },
+      {
+        path: "/modalLogin",
+        element: <ModalLogin />,
+      },
     ],
   },
   // {
