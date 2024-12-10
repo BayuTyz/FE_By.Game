@@ -33,7 +33,7 @@ export const CardGame = ({ data }: Props) => {
             .filter((item) => item.type === "fps")
             .map((item, index) => (
               <li key={index} className="m-4 bg-white rounded-lg shadow-md">
-                <Link to={`/game-detail/${item.id}`} className="block">
+                <Link to={`/topup/${item.id}`} className="block">
                   <img
                     src={`${baseURL}/${item.image}`}
                     alt={item.title}
@@ -68,7 +68,7 @@ export const CardGame = ({ data }: Props) => {
             .filter((item) => item.type === "moba")
             .map((item, index) => (
               <li key={index} className="m-4 bg-white rounded-lg shadow-md">
-                <Link to={`/game-detail/${item.id}`} className="block">
+                <Link to={`/topup/${item.id}`} className="block">
                   <img
                     src={`${baseURL}/${item.image}`}
                     alt={item.title}
@@ -103,7 +103,7 @@ export const CardGame = ({ data }: Props) => {
             .filter((item) => item.type === "rpg")
             .map((item, index) => (
               <li key={index} className="m-4 bg-white rounded-lg shadow-md">
-                <Link to={`/game-detail/${item.id}`} className="block">
+                <Link to={`/topup/${item.id}`} className="block">
                   <img
                     src={`${baseURL}/${item.image}`}
                     alt={item.title}
@@ -124,7 +124,7 @@ export const CardGame = ({ data }: Props) => {
 };
 
 export const TrendingGame = ({ data }: Props) => {
-  const baseURL = "https://px973nrz-3000.asse.devtunnels.ms";
+  const baseURL = "https://px973nrz-3002.asse.devtunnels.ms";
   return (
     //   {/* Bagian Trending */}
     <div className="flex justify-center items-center mt-20 mb-20">
@@ -133,7 +133,7 @@ export const TrendingGame = ({ data }: Props) => {
           .filter((item) => item.trending) // Filter by trending: true
           .map((item, index) => (
             <li key={index} className="w-64 m-4 bg-white rounded-lg shadow-md">
-              <Link to={`/game-detail/${item.id}`} className="block">
+              <Link to={`/topup/${item.id}`} className="block">
                 <img
                   src={`${baseURL}/${item.image}`}
                   alt={item.title}

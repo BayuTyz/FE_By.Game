@@ -19,8 +19,12 @@ const isAuthenticated = () => {
   return !!token;
 };
 const ProtectedRoute = ({ element }: { element: React.ReactElement }) => {
-  return isAuthenticated() ? element : <Navigate to="/Login" />;
+  if (isAuthenticated()) {
+    return element;
+  }
+  return <ModalLogin />;
 };
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -63,7 +67,7 @@ export const router = createBrowserRouter([
         element: <Sigup />,
       },
       {
-        path: "/game-detail/:gameId",
+        path: "/topup/:gameId",
         element: <TopUp />,
       },
       {
