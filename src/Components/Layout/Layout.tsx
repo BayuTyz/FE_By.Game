@@ -22,14 +22,14 @@ const Layout = () => {
       return;
     }
     axios
-      .get("https://px973nrz-3002.asse.devtunnels.ms/select", {
+      .get("https://bg8tgnl0-3002.asse.devtunnels.ms/select", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         setUserData({
-          image: `https://px973nrz-3002.asse.devtunnels.ms/${response.data.data.image}`, // URL gambar
+          image: `https://bg8tgnl0-3002.asse.devtunnels.ms/${response.data.data.image}`, // URL gambar
         });
         setLoading(false);
       })

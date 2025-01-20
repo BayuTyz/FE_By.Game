@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, user }) => {
 
     try {
       const response = await axios.post(
-        "https://px973nrz-3002.asse.devtunnels.ms/users/updateImage",
+        "https://bg8tgnl0-3002.asse.devtunnels.ms/users/updateImage",
         formData,
         {
           headers: {

@@ -20,7 +20,7 @@ const Account: React.FC = () => {
     const token = localStorage.getItem("token");
 
     axios
-      .get("https://px973nrz-3002.asse.devtunnels.ms/users/show", {
+      .get("https://bg8tgnl0-3002.asse.devtunnels.ms/users/show", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +29,7 @@ const Account: React.FC = () => {
         setUserData({
           name: response.data.data.username,
           email: response.data.data.email,
-          image: `https://px973nrz-3002.asse.devtunnels.ms/${response.data.data.image}`,
+          image: `https://bg8tgnl0-3002.asse.devtunnels.ms/${response.data.data.image}`,
         });
         setLoading(false);
       })

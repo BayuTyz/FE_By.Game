@@ -30,7 +30,7 @@ const NewProduct = () => {
 
     try {
       const response = await axios.post(
-        "https://px973nrz-3002.asse.devtunnels.ms/products/insert",
+        "https://bg8tgnl0-3002.asse.devtunnels.ms/products/insert",
         formData,
         {
           headers: {

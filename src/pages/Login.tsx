@@ -9,7 +9,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   // useEffect(() => {
   //   axios
-  //     .get("https://px973nrz-3002.asse.devtunnels.ms/login", {
+  //     .get("https://bg8tgnl0-3002.asse.devtunnels.ms/login", {
   //       headers: {
   //         Authorization: "Bearer ",
   //       },
@@ -51,7 +51,7 @@ const Login = () => {
               const email = target.email.value;
               const password = target.password.value;
               axios
-                .post("https://px973nrz-3002.asse.devtunnels.ms/login", {
+                .post("https://bg8tgnl0-3002.asse.devtunnels.ms/login", {
                   Headers: {
                     "Content-Type": "application/json",
                   },

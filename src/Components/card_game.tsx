@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const CardGame = ({ data }: Props) => {
-  const baseURL = "https://px973nrz-3002.asse.devtunnels.ms";
+  const baseURL = "https://bg8tgnl0-3002.asse.devtunnels.ms";
   return (
     <div>
       {/* Bagian FPS */}
@@ -124,7 +124,7 @@ export const CardGame = ({ data }: Props) => {
 };
 
 export const TrendingGame = ({ data }: Props) => {
-  const baseURL = "https://px973nrz-3002.asse.devtunnels.ms";
+  const baseURL = "https://bg8tgnl0-3002.asse.devtunnels.ms";
   return (
     //   {/* Bagian Trending */}
     <div className="flex justify-center items-center mt-20 mb-20">

@@ -51,7 +51,7 @@ const LoginModal = ({
               const email = target.email.value;
               const password = target.password.value;
               axios
-                .post("https://px973nrz-3002.asse.devtunnels.ms/login", {
+                .post("https://bg8tgnl0-3002.asse.devtunnels.ms/login", {
                   Headers: {
                     "Content-Type": "application/json",
                   },

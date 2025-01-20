@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute element={<Account />} />,
       },
       {
-        path: "Sigup",
+        path: "Signup",
         element: <Sigup />,
       },
       {

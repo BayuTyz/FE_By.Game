@@ -37,7 +37,7 @@ const verify_admins = () => {
               const password = target.password.value;
               axios
                 .post(
-                  "https://px973nrz-3002.asse.devtunnels.ms/users/show_pw",
+                  "https://bg8tgnl0-3002.asse.devtunnels.ms/users/show_pw",
                   {
                     Headers: {
                       "Content-Type": "application/json",

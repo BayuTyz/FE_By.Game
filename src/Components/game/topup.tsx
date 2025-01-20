@@ -20,12 +20,12 @@ const TopUp = () => {
   useEffect(() => {
     axios
       .get(
-        `https://px973nrz-3002.asse.devtunnels.ms/games/tampil_prdct/${gameId}`
+        `https://bg8tgnl0-3002.asse.devtunnels.ms/games/tampil_prdct/${gameId}`
       )
       .then((response) => {
         const productsData = response.data.data.map(
           (product: { image: any; name_product: any; items_price: any }) => ({
-            img: `https://px973nrz-3002.asse.devtunnels.ms/uploads/${product.image}`, // Check this URL structure
+            img: `https://bg8tgnl0-3002.asse.devtunnels.ms/uploads/${product.image}`, // Check this URL structure
             name_items: product.name_product, // Ensure these keys match the API response
             harga: product.items_price,
           })
@@ -34,7 +34,7 @@ const TopUp = () => {
         if (response.data.data[0]?.games) {
           setGameTitle(response.data.data[0].games.title);
           setGameImage(
-            `https://px973nrz-3002.asse.devtunnels.ms/${response.data.data[0].games.image}`
+            `https://bg8tgnl0-3002.asse.devtunnels.ms/${response.data.data[0].games.image}`
           );
         }
       })
@@ -42,7 +42,7 @@ const TopUp = () => {
         setProducts([]);
       });
   }, [gameId]);
-  
+
   const handleTransaction = () => {
     if (!userId || !selectedProduct || !selectedPayment) {
       alert("Please complete all fields.");
@@ -58,11 +58,15 @@ const TopUp = () => {
     };
 
     axios
-      .post("https://px973nrz-3002.asse.devtunnels.ms/payment/transaksi", transactionData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      .post(
+        "https://bg8tgnl0-3002.asse.devtunnels.ms/payment/transaksi",
+        transactionData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((response) => {
         const transactionId = response.data.data.id; // Get transaction ID
         fetchTransactionDetails(transactionId); // Fetch transaction details
@@ -76,11 +80,14 @@ const TopUp = () => {
   // Fetch transaction details
   const fetchTransactionDetails = (transactionId: string) => {
     axios
-      .get(`https://px973nrz-3002.asse.devtunnels.ms/payment/stroke/${transactionId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Include the token
-        },
-      })
+      .get(
+        `https://bg8tgnl0-3002.asse.devtunnels.ms/payment/stroke/${transactionId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Include the token
+          },
+        }
+      )
       .then((response) => {
         setTransactionDetails(response.data.data); // Save transaction details to state
         alert("Transaction successful!");
@@ -119,7 +126,9 @@ const TopUp = () => {
             <ImputIdCard
               title="Masukkan Id Player dan Id Zone"
               placeholder="Masukkan User ID"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>setUserId(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUserId(e.target.value)
+              }
             />
           </div>
           <div className="mb-16">

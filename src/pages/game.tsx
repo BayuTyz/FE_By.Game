@@ -14,7 +14,7 @@ const Game = () => {
   const fetchGameData = async () => {
     try {
       const response = await axios.get(
-        `https://px973nrz-3002.asse.devtunnels.ms/games/tampil`
+        `https://bg8tgnl0-3002.asse.devtunnels.ms/games/tampil`
       );
       setPilihgame(response.data.data); // Set data yang diterima dari backend
       setLoading(false); // Matikan loading saat data sudah didapat
